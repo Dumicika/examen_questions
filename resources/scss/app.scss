@@ -1,0 +1,110 @@
+ @import "bootstrap/scss/bootstrap";
+ @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	--h: 212deg;
+	--l: 43%;
+	--brandColor: hsl(var(--h), 71%, var(--l));
+	font-family: Montserrat, sans-serif;
+	margin: 0;
+	background-color: whitesmoke;
+}
+
+p {
+	margin: 0;
+	line-height: 1.6;
+}
+
+ol {
+	list-style: none;
+	counter-reset: list;
+	padding: 0 1rem;
+}
+
+.question-list {
+	--stop: calc(100% / var(--length) * var(--i));
+	--l: 62%;
+	--l2: 88%;
+	--h: calc((var(--i) - 1) * (180 / var(--length)));
+	--c1: hsl(var(--h), 71%, var(--l));
+	--c2: hsl(var(--h), 71%, var(--l2));
+	
+	position: relative;
+	counter-increment: list;
+	max-width: 45rem;
+	margin: 2rem auto;
+	padding: 2rem 1rem 1rem;
+	box-shadow: 0.1rem 0.1rem 1.5rem rgba(0, 0, 0, 0.3);
+	border-radius: 0.25rem;
+	overflow: hidden;
+	background-color: white;
+}
+
+.question-list::before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 1rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: linear-gradient(to right, var(--c1) var(--stop), var(--c2) var(--stop));
+}
+
+h3 {
+	display: flex;
+	align-items: baseline;
+	margin: 0 0 1rem;
+	color: rgb(70 70 70);
+}
+
+h2 {
+	float:left;
+	display: inline-block; /* Allow text wrapping within the circle */
+	width: 4rem; /* Adjust width as needed */
+	height: 4rem; /* Adjust height as needed */
+	text-align: center; /* Center text within circle */
+	line-height: 4rem; /* Match line-height to circle height for vertical centering */
+	border-radius: 50%;
+	color: white; /* Set text color to white (assuming dark background) */
+	margin-right: 1rem;
+  }
+  
+  .question-list:nth-child(odd) h2 {
+	background-color: var(--c1); /* Use a custom variable for the first color */
+  }
+  
+  .question-list:nth-child(even) h2 {
+	background-color: var(--c2); /* Use another custom variable for the second color */
+  }
+  
+  /* Add more selectors for additional alternating colors (optional) */
+  
+
+// h3::before {
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// 	flex: 0 0 auto;
+// 	margin-right: 1rem;
+// 	width: 3rem;
+// 	height: 3rem;
+// 	//content: counter(list);
+// 	padding: 1rem;
+// 	border-radius: 50%;
+// 	background-color: var(--c1);
+// 	color: white;
+// }
+
+footer {
+    //position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
